@@ -33,6 +33,7 @@ public class EmployeeController {
         String str1 = new String("hot-fix");
         String str2 = new String("master test");
         String str3 = new String("hot-fix test");
+        String str4 = new String("github test");
 
         //跳转到分页页面
         return "employee_list";
