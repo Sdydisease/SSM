@@ -30,6 +30,8 @@ public class EmployeeController {
         //将分页数据共享到请求域中
         model.addAttribute("page",page);
         String str = new String("test");
+        String str1 = new String("hot-fix");
+
         //跳转到分页页面
         return "employee_list";
 
