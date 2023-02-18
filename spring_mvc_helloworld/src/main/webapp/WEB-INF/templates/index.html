@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<!--
+    此页面的物理视图：/WEB-INF/templates/index.html
+    此页面的逻辑视图：index(既去掉视图前缀与视图后缀//Thymeleaf视图解析器配置)
+-->
+<h1>首页</h1>
+
+<a th:href="@{/hello}">thymeleaf</a><!--相当于SpringMVC/hello.html-->
+<a href="../SpringMVC/hello">绝对路径</a>
+</body>
+</html>

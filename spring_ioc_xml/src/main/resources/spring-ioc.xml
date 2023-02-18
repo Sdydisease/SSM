@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="studentOne" class="com.atguigu.spting.pojo.Student"></bean>
+
+    <bean id="studentTwo" class="com.atguigu.spting.pojo.Student">
+        <property name="sid" value="1"></property>
+<!--        <property name="sname" value="张三"></property>-->
+        <property name="sname">
+            <value><![CDATA[<张三>]]></value>
+        </property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+    </bean>
+
+    <bean id="studentThree" class="com.atguigu.spting.pojo.Student">
+        <constructor-arg value="2"></constructor-arg>
+        <constructor-arg value="李四"></constructor-arg>
+        <constructor-arg value="23"></constructor-arg>
+        <constructor-arg name="gender">
+            <null></null>
+        </constructor-arg>
+    </bean>
+
+    <bean id="studentFour" class="com.atguigu.spting.pojo.Student">
+        <property name="sid" value="4"></property>
+        <property name="sname" value="王五"></property>
+        <property name="gender" value="男"></property>
+        <property name="age" value="20"></property>
+
+        <!-- ref属性：引用IOC容器中某个bean的id，将所对应的bean为属性赋值 -->
+<!--        <property name="clazz" ref="clazzOne"></property>-->
+
+        <!-- 一定先引用某个bean为属性赋值，才可以使用级联方式更新属性 -->
+<!--        <property name="clazz" ref="clazzOne"></property>-->
+<!--        <property name="clazz.cid" value="001"></property>-->
+<!--        <property name="clazz.cname" value="一班"></property>-->
+
+        <!-- 在一个bean中再声明一个bean就是内部bean -->
+        <!-- 内部bean只能用于给属性赋值，不能在外部通过IOC容器获取，因此可以省略id属性 -->
+        <property name="clazz">
+            <bean class="com.atguigu.spting.pojo.Clazz">
+                <property name="cid" value="002"></property>
+                <property name="cname" value="二班"></property>
+            </bean>
+        </property>
+
+        <property name="hobby">
+            <array>
+                <value>唱</value>
+                <value>跳</value>
+                <value>rap</value>
+                <value>篮球</value>
+            </array>
+        </property>
+
+        <property name="teacherMap">
+            <map>
+                <entry key="111" value-ref="teacherOne"></entry>
+                <entry key="222" value-ref="teacherTwo"></entry>
+            </map>
+        </property>
+
+    </bean>
+
+    <bean id="teacherOne" class="com.atguigu.spting.pojo.Teacher">
+        <property name="tid" value="001"></property>
+        <property name="tname" value="老师1"></property>
+    </bean>
+    <bean id="teacherTwo" class="com.atguigu.spting.pojo.Teacher">
+        <property name="tid" value="002"></property>
+        <property name="tname" value="老师2"></property>
+    </bean>
+
+    <bean id="clazzOne" class="com.atguigu.spting.pojo.Clazz">
+        <property name="cid" value="001"></property>
+        <property name="cname" value="一班"></property>
+        <property name="students">
+            <list>
+                <ref bean="studentOne"></ref>
+                <ref bean="studentTwo"></ref>
+                <ref bean="studentThree"></ref>
+            </list>
+        </property>
+    </bean>
+
+</beans>

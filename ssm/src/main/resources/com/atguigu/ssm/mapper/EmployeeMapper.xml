@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--MyBatis的映射文件-->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--和mapper接口的全类名保持一致-->
+<mapper namespace="com.atguigu.ssm.mapper.EmployeeMapper">
+
+    <!--List<Employee> getAllEmployee();-->
+    <select id="getAllEmployee" resultType="Employee">
+        select * from t_emp
+    </select>
+
+</mapper>

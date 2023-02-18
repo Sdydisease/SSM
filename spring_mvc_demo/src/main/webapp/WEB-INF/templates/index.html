@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>首页</h1>
+<a th:href="@{/hello}">测试@RequestMapping注解所标识的位置</a><br>
+<a th:href="@{/test/hello}">测试@RequestMapping注解所标识的位置</a><br>
+<a th:href="@{/abc}">测试@RequestMapping注解的value属性</a><br>
+
+<form th:action="@{/hello(username=1,password=123456)}" method="post">
+    <input type="submit" value="测试@RequestMapping注解的method属性">
+</form>
+
+<a th:href="@{/aaa/test/ant}">测试@RequestMapping注解支持ant风格的路径</a>
+<a th:href="@{/test/rest/root/123456}">测试@RequestMapping注解支持路径中的占位符</a>
+
+<hr>
+
+<form th:action="@{/param/servletAPI}" method="post">
+    用户名：<input type="text" name="username"><br>
+    密码：<input type="password" name="password"><br>
+    <input type="submit"><br>
+</form>
+
+<hr>
+
+<form th:action="@{/param}" method="post">
+    用户名：<input type="text" name="userName"><br>
+    密码：<input type="password" name="password"><br>
+    <input type="submit"><br>
+</form>
+
+<hr>
+
+<form th:action="@{/param/pojo}" method="post">
+    用户名：<input type="text" name="username"><br>
+    密码：<input type="password" name="password"><br>
+    <input type="submit"><br>
+</form>
+
+<hr>
+
+<a th:href="@{/test/mav}">测试通过ModelAndView向请求域共享数据</a><br>
+<a th:href="@{/test/model}">测试通过Model向请求域共享数据</a><br>
+<a th:href="@{/test/session}">测试向会话域共享数据</a><br>
+<a th:href="@{/test/application}">测试向应用域共享数据</a><br>
+
+<hr>
+
+<a th:href="@{/test/view/thymeleaf}">测试SpringMVC视图ThymeleafView</a><br>
+<a th:href="@{/test/view/forward}">测试SpringMVC视图InternalResourceView</a><br>
+<a th:href="@{/test/view/redirect}">测试SpringMVC视图RedirectView</a><br>
+
+</body>
+</html>
