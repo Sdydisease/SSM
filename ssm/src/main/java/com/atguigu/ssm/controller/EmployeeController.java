@@ -31,6 +31,7 @@ public class EmployeeController {
         model.addAttribute("page",page);
         String str = new String("test");
         String str1 = new String("hot-fix");
+        String str2 = new String("hot-fix test");
 
         //跳转到分页页面
         return "employee_list";
