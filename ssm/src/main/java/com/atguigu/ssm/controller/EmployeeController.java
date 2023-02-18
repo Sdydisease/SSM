@@ -29,6 +29,7 @@ public class EmployeeController {
         PageInfo<Employee> page = employeeService.getEmployeePage(pageNum);
         //将分页数据共享到请求域中
         model.addAttribute("page",page);
+        String str = new String("test");
         //跳转到分页页面
         return "employee_list";
 
